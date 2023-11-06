@@ -11,29 +11,43 @@
 6. Display the employee table
 
 ### Program:
-```SQL> CREATE TABLE emp(empid NUMBER,empname VARCHAR(10),dept VARCHAR(10),salary NUMBER);```
-
+Create Table :
+```sql
+ create table employee1(Emp_id NUMBER primary key ,Ename varchar (100) , Dept varchar(20) , Salary NUMBER);
 ```
-SQL> CREATE OR REPLACE PROCEDURE emp_data AS
-  2      BEGIN
-  3      INSERT INTO emp(empid,empname,dept,salary)
-  4      values(1,'KIRA','CSE',15000);
-  5      INSERT INTO emp(empid,empname,dept,salary)
-  6      values(2,'GORINO','IT',5500);
-  7      INSERT INTO emp(empid,empname,dept,salary)
-  8      values(3,'THORFIN','ECE',22000);
-  9      COMMIT;
- 10     FOR emp_rec IN (SELECT * FROM emp)LOOP
- 11     DBMS_OUTPUT.PUT_LINE('EMPLOYEE ID:'||emp_rec.empid||',EMPLOYEE NAME:'|| emp_rec.empname||
- 12     ',DEPARTMENT:'||emp_rec.dept||',SALARY:'||emp_rec.salary);
- 13     END LOOP;
- 14     END;
- 15    /
+Create Procedure :
+```sql
+1  create or replace procedure insert_emp_data as
+2  begin
+3  insert into employee1(Emp_id,Ename,Dept,Salary)
+4  values(1,'Kothai', 'HR' , 50000);
+5  insert into employee1(Emp_id,Ename,Dept,Salary)
+6  values (2,'Mithra Mukundaa' , 'IT',50000);
+7  insert into employee1(Emp_id,Ename,Dept,Salary)
+8  values (3,'Nethraa J' , 'Finance',50000);
+9  insert into employee1(Emp_id,Ename,Dept,Salary)
+10  values (4,'Lekhashree K' , 'IT',50000);
+11  commit;
+12  end;
+13  /
 ```
+Call Procedure :
+```sql
+1  begin
+2  insert_emp_data;
+3  end;
+4  /
+```
+Display Table:
+```sql
+1  select * from employee1;
+```
+  
 ### Output:
-![image](https://github.com/aadhithya15/Ex-No-4-Creating-Procedures-using-PL-SQL/assets/121165812/dd98573e-34c5-411a-bacb-9aa424109025)
-![image](https://github.com/aadhithya15/Ex-No-4-Creating-Procedures-using-PL-SQL/assets/121165812/07d36498-2f17-4efb-a573-b5677d43c318)
-![image](https://github.com/aadhithya15/Ex-No-4-Creating-Procedures-using-PL-SQL/assets/121165812/8d28bcc3-6974-4015-9910-f9e04e335011)
+![image](https://github.com/KothaiKumar/Ex-No-4-Creating-Procedures-using-PL-SQL/assets/121215739/54f1064d-ad31-41f2-8d27-4a3ba89fcb7c)
+
+![image](https://github.com/KothaiKumar/Ex-No-4-Creating-Procedures-using-PL-SQL/assets/121215739/b353f0bb-91a6-42e0-a9bc-d0a6d8471d41)
+
 
 ### Result:
-the commands using Procedures using PL/SQL has been executed successfully.
+Thus, a procedure is created using PL/SQL.
